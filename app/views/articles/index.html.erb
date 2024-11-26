@@ -1,0 +1,22 @@
+<div class="bg-light border-bottom">
+  <nav class="navbar navbar-expand-lg container">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 fw-bold">Wikiminous</span>
+      <%= link_to new_article_path, class: "btn btn-primary" do %>
+        <i class="bi bi-plus-lg"></i> New Article
+      <% end %>
+    </div>
+  </nav>
+</div>
+<div class="container mt-4 mx">
+  <% @articles.each do |article| %>
+    <div class="mb-4">
+      <h2 class="text-primary fw-bold">
+        <%= link_to article.title, article_path(article), class: "text-decoration-none" %>
+      </h2>
+      <blockquote class="text-muted fs-6 fst-italic">
+        <%= truncate(article.content, length: 100) %>
+      </blockquote>
+    </div>
+  <% end %>
+</div>
